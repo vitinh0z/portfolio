@@ -1,6 +1,6 @@
-package com.portfolio.backend.repository;
+package dev.vitinh0z.backend.repository;
 
-import com.portfolio.backend.model.Projeto;
+import dev.vitinh0z.backend.model.Projeto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

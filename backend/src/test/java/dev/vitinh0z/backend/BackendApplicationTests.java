@@ -1,4 +1,4 @@
-package com.portfolio.backend;
+package dev.vitinh0z.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

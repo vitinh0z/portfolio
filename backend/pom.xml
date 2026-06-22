@@ -11,11 +11,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.portfolio</groupId>
+    <groupId>dev.vitinh0z</groupId>
     <artifactId>backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>backend</name>
-    <description>Portfolio Backend - Spring Boot MVC REST API</description>
+    <description>vitinh0z.dev - Spring Boot MVC REST API</description>
 
     <properties>
         <java.version>17</java.version>

@@ -1,7 +1,7 @@
-package com.portfolio.backend.controller;
+package dev.vitinh0z.backend.controller;
 
-import com.portfolio.backend.model.Projeto;
-import com.portfolio.backend.service.ProjetoService;
+import dev.vitinh0z.backend.model.Projeto;
+import dev.vitinh0z.backend.service.ProjetoService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

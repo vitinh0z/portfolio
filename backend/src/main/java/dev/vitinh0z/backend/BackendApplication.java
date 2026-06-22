@@ -1,4 +1,4 @@
-package com.portfolio.backend;
+package dev.vitinh0z.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package com.portfolio.backend.service;
+package dev.vitinh0z.backend.service;
 
-import com.portfolio.backend.model.Projeto;
-import com.portfolio.backend.repository.ProjetoRepository;
+import dev.vitinh0z.backend.model.Projeto;
+import dev.vitinh0z.backend.repository.ProjetoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

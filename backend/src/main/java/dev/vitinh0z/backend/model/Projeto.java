@@ -1,4 +1,4 @@
-package com.portfolio.backend.model;
+package dev.vitinh0z.backend.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
