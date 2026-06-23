@@ -6,9 +6,12 @@ import dev.vitinh0z.backend.exception.VisitorNotFoundException;
 import dev.vitinh0z.backend.model.Visitor;
 import dev.vitinh0z.backend.repository.VisitorRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -18,10 +21,20 @@ public class VisitorService {
     private final VisitorRepository visitorRepository;
 
 
+
     public Visitor upsertOnLogin(VisitorDtoRequest visitorDtoRequest){
-        return visitorRepository.findByGithubId(visitorDtoRequest.githubId())
-                .map(this::registerVisitor)
-                .orElseGet(() -> createVisitor(visitorDtoRequest));
+        Optional<Visitor> existente = visitorRepository.findByGithubId(visitorDtoRequest.githubId());
+        if (existente.isPresent()) {
+            return registerVisitor(existente.get());
+        }
+        try {
+            return createVisitor(visitorDtoRequest);
+        } catch (DataIntegrityViolationException loginConcorrente) {
+
+            return visitorRepository.findByGithubId(visitorDtoRequest.githubId())
+                    .map(this::registerVisitor)
+                    .orElseThrow(() -> loginConcorrente);
+        }
     }
 
     private Visitor registerVisitor(Visitor visitor){
@@ -45,6 +58,7 @@ public class VisitorService {
         return visitorRepository.saveAndFlush(visitor);
     }
 
+    @Transactional
     public Visitor createMessage (String message, Long githubId){
         Visitor visitor = visitorRepository.findByGithubId(githubId).orElseThrow(()
                 -> new VisitorNotFoundException(githubId));
