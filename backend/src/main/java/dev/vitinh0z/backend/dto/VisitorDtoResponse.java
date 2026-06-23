@@ -9,5 +9,6 @@ public record VisitorDtoResponse(
         Long githubId,
         String name,
         String profileUrl,
+        String message,
         LocalDateTime firstVisitAt) {
 }
