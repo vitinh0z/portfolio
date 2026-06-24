@@ -8,8 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    // Origens permitidas para o front (dev: Vite em localhost:5173).
-    // Configuravel via app.cors.allowed-origins (separar por virgula em prod).
     @Value("${app.cors.allowed-origins:http://localhost:5173}")
     private String[] allowedOrigins;
 
