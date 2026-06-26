@@ -1,3 +1,10 @@
-// [Frontend #10] Entry point da SPA (React + Vite).
-// TODO: montar <App/> na raiz; importar estilos base.
-// Ver issue: https://github.com/vitinh0z/portfolio/issues/10
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import './styles/theme.css'
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
