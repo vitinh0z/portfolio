@@ -36,3 +36,10 @@ target/
 
 # oh-my-claudecode (estado local de agentes)
 .omc/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
