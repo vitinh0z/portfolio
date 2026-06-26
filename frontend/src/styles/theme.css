@@ -1,4 +1,111 @@
-/* [Frontend #11] Tema base GitHub-dark. */
-/* TODO: tokens de cor (#0d1117 fundo, #161b22 cartoes, #58a6ff destaque, */
-/*       #c9d1d9 texto, #8b949e secundario), layout e tipografia base.     */
-/* Ver issue: https://github.com/vitinh0z/portfolio/issues/11 */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-void-black text-white font-sans overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-acid-green text-void-black;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-void-black;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-acid-green;
+  }
+}
+
+@layer components {
+  .scanline-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.08) 2px,
+      rgba(0, 0, 0, 0.08) 4px
+    );
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(204, 255, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(204, 255, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .card-brutalist {
+    @apply border-2 border-white bg-void-black;
+    box-shadow: 4px 4px 0px 0px #fff;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .card-brutalist:hover {
+    @apply border-acid-green -translate-y-0.5;
+    box-shadow: 4px 4px 0px 0px #ccff00, 0 0 20px rgba(204, 255, 0, 0.25);
+  }
+
+  .btn-brutalist {
+    @apply border-2 border-white text-white font-mono text-xs font-bold uppercase px-4 py-2 bg-void-black;
+    box-shadow: 3px 3px 0px 0px #fff;
+    transition: all 0.1s ease;
+  }
+
+  .btn-brutalist:hover {
+    @apply border-acid-green text-acid-green -translate-y-px;
+    box-shadow: 3px 3px 0px 0px #ccff00;
+  }
+
+  .btn-brutalist:active {
+    @apply translate-y-0;
+    box-shadow: 1px 1px 0px 0px #ccff00;
+  }
+
+  .btn-green {
+    @apply border-2 border-acid-green text-void-black bg-acid-green font-mono text-xs font-bold uppercase px-4 py-2;
+    box-shadow: 3px 3px 0px 0px #ccff00;
+    transition: all 0.1s ease;
+  }
+
+  .btn-green:hover {
+    @apply -translate-y-px bg-void-black text-acid-green;
+    box-shadow: 3px 3px 0px 0px #ccff00;
+  }
+
+  .tag-chip {
+    @apply text-[10px] font-black font-mono uppercase bg-white text-void-black border border-black px-1.5 py-0.5 inline-flex items-center gap-1;
+    transition: background 0.1s ease;
+  }
+
+  .tag-chip:hover {
+    @apply bg-acid-green;
+  }
+
+  .section-title {
+    @apply font-mono text-xs text-acid-purple uppercase tracking-widest mb-1;
+  }
+
+  .section-heading {
+    @apply font-sans font-bold text-3xl text-white uppercase;
+  }
+}

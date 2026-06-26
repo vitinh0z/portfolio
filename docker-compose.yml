@@ -40,12 +40,14 @@ services:
       - portfolio_net
 
   frontend:
-    image: nginx:alpine
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: portfolio_frontend
     ports:
       - "80:80"
-    volumes:
-      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
     networks:
       - portfolio_net
 
